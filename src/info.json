@@ -1,0 +1,173 @@
+{
+    "identifier": "com.qwen.tts.bob.plugin",
+    "version": "2.0.0",
+    "category": "tts",
+    "name": "Qwen TTS",
+    "summary": "使用 OpenAI 兼容的 Qwen TTS 服务（/v1/audio/speech）进行语音合成",
+    "icon": "132",
+    "author": "littlecowherd",
+    "homepage": "https://github.com/Littlecowherd/bob-plugin-doubao-tts",
+    "appcast": "https://github.com/Littlecowherd/bob-plugin-doubao-tts/raw/main/appcast.json",
+    "minBobVersion": "1.0.0",
+    "options": [
+        {
+            "identifier": "baseUrl",
+            "type": "text",
+            "title": "服务地址 (Base URL)",
+            "desc": "本地或远程 OpenAI 兼容服务的根地址，例如 http://127.0.0.1:8000。插件自动拼接 /v1/audio/speech，末尾斜杠可加可不加",
+            "defaultValue": "http://127.0.0.1:8000",
+            "textConfig": {
+                "type": "visible",
+                "placeholderText": "http://127.0.0.1:8000",
+                "height": "26"
+            }
+        },
+        {
+            "identifier": "apiKey",
+            "type": "text",
+            "title": "API Key（可选）",
+            "desc": "如服务端要求鉴权则填写；填写后以 Authorization: Bearer 方式发送，留空则不发送该头",
+            "textConfig": {
+                "type": "secure",
+                "placeholderText": "留空表示无需鉴权",
+                "height": "26"
+            }
+        },
+        {
+            "identifier": "model",
+            "type": "text",
+            "title": "模型",
+            "desc": "透传给 model 字段",
+            "defaultValue": "mlx-community/Qwen3-TTS-12Hz-0.6B-CustomVoice-8bit",
+            "textConfig": {
+                "type": "visible",
+                "placeholderText": "mlx-community/Qwen3-TTS-12Hz-0.6B-CustomVoice-8bit",
+                "height": "26"
+            }
+        },
+        {
+            "identifier": "voice",
+            "type": "text",
+            "title": "音色 (voice)",
+            "desc": "例如 Serena；透传给 voice 字段",
+            "defaultValue": "Serena",
+            "textConfig": {
+                "type": "visible",
+                "placeholderText": "Serena",
+                "height": "26"
+            }
+        },
+        {
+            "identifier": "langCode",
+            "type": "text",
+            "title": "语言 (lang_code，留空自动)",
+            "desc": "留空时按 Bob 当前语言自动映射（zh-Hans/zh-Hant→Chinese，en→English 等）；填写则强制使用该值，透传给 lang_code",
+            "textConfig": {
+                "type": "visible",
+                "placeholderText": "留空自动映射",
+                "height": "26"
+            }
+        },
+        {
+            "identifier": "instruct",
+            "type": "text",
+            "title": "指令 (instruct)",
+            "desc": "说话风格指示，透传给 instruct；留空则不发送该字段",
+            "defaultValue": "自然、清晰、温和地说",
+            "textConfig": {
+                "type": "visible",
+                "placeholderText": "自然、清晰、温和地说",
+                "height": "60"
+            }
+        },
+        {
+            "identifier": "temperature",
+            "type": "text",
+            "title": "temperature",
+            "desc": "范围 0-2，非法值回退默认值",
+            "defaultValue": "0.8",
+            "textConfig": {
+                "type": "visible",
+                "placeholderText": "0.8",
+                "height": "26"
+            }
+        },
+        {
+            "identifier": "topP",
+            "type": "text",
+            "title": "top_p",
+            "desc": "范围 0-1，非法值回退默认值",
+            "defaultValue": "0.95",
+            "textConfig": {
+                "type": "visible",
+                "placeholderText": "0.95",
+                "height": "26"
+            }
+        },
+        {
+            "identifier": "topK",
+            "type": "text",
+            "title": "top_k",
+            "desc": "范围 0-100（整数），非法值回退默认值",
+            "defaultValue": "50",
+            "textConfig": {
+                "type": "visible",
+                "placeholderText": "50",
+                "height": "26"
+            }
+        },
+        {
+            "identifier": "repetitionPenalty",
+            "type": "text",
+            "title": "repetition_penalty",
+            "desc": "范围 1.0-2.0，非法值回退默认值",
+            "defaultValue": "1.05",
+            "textConfig": {
+                "type": "visible",
+                "placeholderText": "1.05",
+                "height": "26"
+            }
+        },
+        {
+            "identifier": "maxTokens",
+            "type": "text",
+            "title": "max_tokens",
+            "desc": "范围 1-8192（整数），非法值回退默认值",
+            "defaultValue": "2400",
+            "textConfig": {
+                "type": "visible",
+                "placeholderText": "2400",
+                "height": "26"
+            }
+        },
+        {
+            "identifier": "responseFormat",
+            "type": "menu",
+            "title": "音频格式 (response_format)",
+            "desc": "透传给 response_format",
+            "defaultValue": "wav",
+            "menuValues": [
+                {
+                    "title": "WAV（推荐）",
+                    "value": "wav"
+                },
+                {
+                    "title": "MP3",
+                    "value": "mp3"
+                }
+            ]
+        },
+        {
+            "identifier": "timeout",
+            "type": "text",
+            "title": "超时时间（秒）",
+            "desc": "请求超时时间，范围 30-300 秒",
+            "defaultValue": "60",
+            "textConfig": {
+                "type": "visible",
+                "placeholderText": "60",
+                "height": "26"
+            }
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "identifier": "com.qwen.tts.bob.plugin",
+    "versions": [
+        {
+            "version": "1.2.0",
+            "desc": "改用豆包语音 V3 HTTP Chunked 单向流式接口；使用 API Key 鉴权；移除 WebSocket、旧版鉴权和 1.0 模型配置",
+            "sha256": "b2418d5b9f29dc748dca1991869f0daf51f4ce3c33d9c9e84ca3f55169918818",
+            "url": "https://github.com/Littlecowherd/bob-plugin-doubao-tts/raw/main/qwen-tts.bobplugin",
+            "minBobVersion": "1.8.0",
+            "timestamp": 1789720959000
+        },
+        {
+            "version": "1.0.0",
+            "desc": "初始版本：基于豆包语音合成大模型 V3 HTTP 单向流式接口实现 TTS",
+            "sha256": "8f796611431cc0400160fc9c50c49f490b1c2fca4c6d37856952d9e805f00eb9",
+            "url": "https://github.com/Littlecowherd/bob-plugin-doubao-tts/raw/main/qwen-tts.bobplugin",
+            "minBobVersion": "1.8.0",
+            "timestamp": 1770815729000
+        }
+    ]
+}
